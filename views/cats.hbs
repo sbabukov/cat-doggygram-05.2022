@@ -1,0 +1,16 @@
+<form action="/cats" method="post">
+    <label for="cat-name">Cat Name</label>
+    <input type="text" id="cat-name" name="cat" />
+    <input type="submit" value="create" />
+</form>
+{{!-- форма за създаване на нова котка --}}
+
+{{#if cats}}
+<ul>
+    {{#each cats}}
+        {{> cat}}
+        {{!-- това cat е паршъла cat.hbs --}}
+    {{/each}}
+    {{!-- #each cats подава се масива котки --}}
+</ul>
+{{/if}}

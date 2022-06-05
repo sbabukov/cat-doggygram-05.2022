@@ -1,0 +1,15 @@
+<form action="/dogs" method="post">
+    <label for="dog-name">Dog Name</label>
+    <input type="text" id="dog-name" name="dog" />
+    <input type="submit" value="create" />
+</form>
+{{!-- форма за създаване на ново куче --}}
+
+
+<h1>Hello from dogs</h1>
+
+<ul>
+    {{#each dogs}}
+        {{> dog}}
+    {{/each}}
+</ul>

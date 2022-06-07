@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Person = require('./Modules/Person');
 
 const uri = 'mongodb://localhost:27017/mongotest';
 
@@ -17,20 +18,7 @@ db.once('open', () => {
 
 
 
-// правим си схема/модел на базата, подава се обект за конфигуриране
-const personSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-
-});
-
-const Person = mongoose.model('Person', personSchema); 
-// Person е модела
-// ('Person', personSchema) подава се модела, после и схемата
-
-
-
-let person = new Person({name: 'Sandokan', age: 10})
+let person = new Person({name: 'Vinetu', age: 10})
 // създаване на пърсън Пешо по модела
 
 

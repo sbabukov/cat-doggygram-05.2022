@@ -18,7 +18,7 @@ db.once('open', () => {
 
 
 
-let person = new Person({name: 'Sandokan', age: 30})
+let person = new Person({ name: 'Sandokan', age: 30 })
 // създаване на пърсън Пешо по модела
 
 
@@ -46,7 +46,7 @@ let person = new Person({name: 'Sandokan', age: 30})
 
 
 // async function run() {
-    
+
 //     let result = await person.save();
 //     console.log(result);
 // }
@@ -56,13 +56,14 @@ let person = new Person({name: 'Sandokan', age: 30})
 
 
 Person.find({})
-.then((people) => {
-    // console.log(people);
-    // people.forEach(x => x.getInfo())
-    // people.forEach(x => console.log(`I am born ${x.birthYear}`));
-});
+    .then((people) => {
+        // console.log(people);
+        // people.forEach(x => x.getInfo())
+        // people.forEach(x => console.log(`I am born ${x.birthYear}`));
+    });
 // взима всички записи от базата с промис варианта
 // форичване и викане на метода от personSchema.methods.getInfo от файла Persons
+
 
 // Person.findById('629f64099cfed5a4244f3802')
 // .then(result => {
@@ -76,18 +77,40 @@ Person.find({})
 //         console.log(result);
 //     });
 
-    // ъпдейтва запис в базата, като го намира по id
+// ъпдейтва запис в базата, като го намира по id
 
 
-    // Person.findByIdAndUpdate('629f64099cfed5a4244f3802', {$set: {name: 'Sando'}})
+// Person.findByIdAndUpdate('629f64099cfed5a4244f3802', {$set: {name: 'Sando'}})
+// .then(res => {
+//     console.log(res);
+// });
+// find and update едновременно
+
+
+// Person.findByIdAndDelete('629f64099cfed5a4244f3802')
+// .then(res => {
+
+// });
+// намиране по id и изтриване на записа в ДБ
+
+// Person.findById('62a0812427804cce57167248')
+//     .then(people => {
+//         people.name = 'Sando'
+//         people.save()
+//         console.log(people.name);
+//     })
+
+    // намира по id и му сменя само името
+
+    // Person.count()
     // .then(res => {
     //     console.log(res);
     // });
-    // find and update едновременно
+    // с промис вариант, дава броя на всичките записи в ДБ
 
-
-    // Person.findByIdAndDelete('629f64099cfed5a4244f3802')
-    // .then(res => {
-
-    // });
-    // намиране по id и изтриване на записа в ДБ
+    // async function run() {
+    //     let count = await Person.count();
+    //     console.log(count);
+    // };
+    // run();
+    // вариант с асинг ауейт, дава броя на записите в ДБ

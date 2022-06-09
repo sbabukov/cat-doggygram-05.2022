@@ -1,6 +1,11 @@
 const express = require('express');
 const {engine} = require('express-handlebars');
 const bodyParser = require('body-parser');
+const createCat = require('./services/createCat');
+const Cat = require('./Modules/Cat');
+
+require('./config/db')
+// само го викаме, като го рекуирне, си изпълнява всичко
 
 const cats = require('./cats');
 const dogs = require('./dogs');
@@ -35,10 +40,18 @@ app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
 
-    let name = 'Navcho';
+    // createCat('Navcho', 'Ivaylo');
 
-    res.render('home', {name});
-    // по подразбиране си търси layout
+    Cat.find({name: 'Navcho'})
+    .populate('owner')
+    .then(cat => {
+        console.log(cat);
+
+        let name = 'Navcho';
+        res.render('home', {name});
+        // по подразбиране си търси layout
+    })
+
     
 });
 
@@ -97,6 +110,9 @@ app.post('/dogs', (req, res) => {
 // app.put('/cats/:id', (req, res) => {
 //     console.log(`Update cat ${req.path}`);
 // });
+
+
+
 
 
 app.listen(port, () => {
